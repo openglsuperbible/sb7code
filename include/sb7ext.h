@@ -28,7 +28,7 @@
 
 #include "GL/glext.h"
 
-void * sb6GetProcAddress(const char * funcname);
+GL3WglProc sb6GetProcAddress(const char * funcname);
 int sb6IsExtensionSupported(const char * extname);
 
 #endif /* __SB6EXT_H__ */

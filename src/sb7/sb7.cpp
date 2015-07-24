@@ -31,7 +31,7 @@ sb7::application * sb7::application::app = 0;
 
 #include <string.h>
 
-void * sb6GetProcAddress(const char * funcname)
+GL3WglProc sb6GetProcAddress(const char * funcname)
 {
     return gl3wGetProcAddress(funcname);
 }
