@@ -133,14 +133,14 @@ public:
                 GLuint      fs;
             };
             GLuint          shaders[2];
-        };
+        } shader;
 
-        vs = sb7::shader::load("media/shaders/dflandscape/dflandscape.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb7::shader::load("media/shaders/dflandscape/dflandscape.fs.glsl", GL_FRAGMENT_SHADER);
+        shader.vs = sb7::shader::load("media/shaders/dflandscape/dflandscape.vs.glsl", GL_VERTEX_SHADER);
+        shader.fs = sb7::shader::load("media/shaders/dflandscape/dflandscape.fs.glsl", GL_FRAGMENT_SHADER);
 
         glDeleteProgram(sdf_program);
 
-        sdf_program = sb7::program::link_from_shaders(shaders, 2, true);
+        sdf_program = sb7::program::link_from_shaders(shader.shaders, 2, true);
 
         GLint foo = glGetUniformLocation(sdf_program, "uv_transform");
     }

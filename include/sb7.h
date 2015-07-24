@@ -32,6 +32,9 @@
 
     #define WIN32_LEAN_AND_MEAN 1
     #include <Windows.h>
+#else
+    #include <unistd.h>
+    #define Sleep(t) sleep(t)
 #endif
 
 #include "GL/gl3w.h"
