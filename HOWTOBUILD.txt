@@ -1,0 +1,88 @@
+OpenGL SuperBible 7th Edition Examples - How to Build
+=====================================================
+
+This source code archive uses CMake to build. The samples also use GLFW library, a
+snapshot of which is included in the `extern` folder. It's also possible to use a different
+copy of GLFW if desired, but that's an excercise for you. Instructions for each supported
+platform are as follows:
+
+Windows / Microsoft Visual Studio 2013
+--------------------------------------
+
+Install CMake. Windows binaries are available from http://www.cmake.org/.
+Ensure that CMake is in your path.
+Open a command prompt and change to the directory where you've checked out the code.
+
+### Build GLFW
+
+If you are going to use the copy of GLFW included in the archive, enter the
+GLFW directory in `extern/glfw-3.0.4`, and type:
+
+    cmake -G "Visual Studio 12" .
+
+(Yes, that's not a mistake - Visual Studio 12 is 2013)
+
+Open the resulting GLFW.sln file in Visual Studio and build both the debug and release configurations.
+
+Copy and rename the resulting glfw3 libraries:
+
+* Copy `glfw-3.0.4/src/Debug/glfw3.lib` into the `lib` directory and **rename it to glfw3_d.lib**.
+* Copy `glf3-3.0.4/src/Release/glfw3.lib` into the `lib` directory but don't rename it.
+
+### Build the samples
+
+Open a command prompt and change to the build directory in the source archive.
+Type:
+
+    cmake -G "Visual Studio 12" ..
+
+Open the resulting superbible7.sln project in Visual Studio.
+
+The examples will build into the `bin` directory.
+
+Linux
+-----
+
+As with Windows, the project uses CMake to create build files. You'll
+need to install it with the appropriate method for your distribution. On
+Debian-based distributions (such as Ubuntu and Mint):
+
+    sudo apt-get install cmake
+
+You'll also need to satisfy dependencies. In particular, you'll need GL and
+GLX headers and libs (generally included in Mesa packages), and GLFW. You can use
+the a snapshot of GLFW included in the archive, if you wish, but pre-compiled
+packages should be available through package management on most distributions.
+
+Once you have everything, you should enter the "build" directory in the source
+arvhive and issue:
+
+    cmake ..
+    make
+
+The examples will build into the 'bin' directory.
+
+Other platforms
+---------------
+
+The code will probably build for other platforms, especially if they are
+relatively non-obscure, but nothing besides Windows/Visual Studio and Linux
+has been tested. It's up to you to find a capable OpenGL 4.x driver for
+your platform of choice. CMake should also be able to build the appropriate
+project files for environments such as Code::Blocks and Eclipse, but again,
+this is untested.
+
+
+*Please note carefully: EVEN IF YOU CAN BUILD THE SOURCES FOR YOUR FAVORITE
+PLATFORM OF CHOICE, YOU NEED RECENT OpenGL 4.x DRIVERS TO RUN THEM. PLEASE
+DON'T PAN THE BOOK BECAUSE YOUR COMPUTER DOESN'T SUPPORT OpenGL 4.x. THANKS*
+
+Running the samples
+-------------------
+
+*This part is really important. Please read it!*
+
+Most of the samples require some media files. The media files package is a
+separate download available from http://www.openglsuperbible.com and is
+rougly 100MB of textures, object files and shader code. Unpack the archive
+to the bin/media directory before trying to run these samples.
