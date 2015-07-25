@@ -28,9 +28,6 @@
 #include <sb7ktx.h>
 #include <shader.h>
 
-#define MANY_OBJECTS 1
-#undef MANY_OBJECTS
-
 class phonglighting_app : public sb7::application
 {
 public:

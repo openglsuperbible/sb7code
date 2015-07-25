@@ -180,6 +180,7 @@ public:
             glAttachShader(program[i], tes);
             glAttachShader(program[i], fs);
             glLinkProgram(program[i]);
+            tess_level_location[i] = glGetUniformLocation(program[i], "tess_level");
 
             glDeleteShader(vs);
             glDeleteShader(tcs);
@@ -200,8 +201,8 @@ public:
         glClearBufferfv(GL_COLOR, 0, black);
 
         glUseProgram(program[program_index]);
-        // glUniform1f(0, sinf((float)currentTime) * 5.0f + 6.0f);
-        glUniform1f(0, 5.3f);
+        glUniform1f(tess_level_location[program_index], sinf((float)currentTime) * 5.0f + 6.0f);
+        // glUniform1f(tess_level_location[program_index], 5.3f);
         glDrawArrays(GL_PATCHES, 0, 4);
     }
 
@@ -232,6 +233,7 @@ private:
     GLuint          program[3];
     int             program_index;
     GLuint          vao;
+    GLint           tess_level_location[3];
 };
 
 DECLARE_MAIN(tesssubdivmodes_app)

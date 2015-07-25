@@ -21,15 +21,15 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-#include <sb6.h>
+#include <sb7.h>
 #include <vmath.h>
 
 #include <object.h>
-#include <sb6ktx.h>
+#include <sb7ktx.h>
 #include <shader.h>
 #include <arcball.h>
 
-class sb6mrender_app : public sb6::application
+class sb6mrender_app : public sb7::application
 {
 public:
     sb6mrender_app()
@@ -43,7 +43,7 @@ protected:
     {
         static const char title[] = "OpenGL SuperBible - SB6 Model Rendering";
 
-        sb6::application::init();
+        sb7::application::init();
 
         memcpy(info.title, title, sizeof(title));
     }
@@ -129,9 +129,9 @@ protected:
         glGenTextures(1, &tex_color);
         glGenTextures(1, &tex_normal);
         glActiveTexture(GL_TEXTURE0);
-        sb6::ktx::file::load("media/textures/ladybug_co.ktx", tex_color);
+        sb7::ktx::file::load("media/textures/ladybug_co.ktx", tex_color);
         glActiveTexture(GL_TEXTURE1);
-        sb6::ktx::file::load("media/textures/ladybug_nm.ktx", tex_normal);
+        sb7::ktx::file::load("media/textures/ladybug_nm.ktx", tex_normal);
     }
 
     virtual void render(double currentTime)
@@ -194,7 +194,7 @@ protected:
 
     void onResize(int w, int h)
     {
-        sb6::application::onResize(w, h);
+        sb7::application::onResize(w, h);
 
         arcball.setDimensions(float(w), float(h));
     }
@@ -217,8 +217,8 @@ protected:
         GLuint vs;
         GLuint fs;
 
-        vs = sb6::shader::load("media/shaders/sb6mrender/render.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb6::shader::load("media/shaders/sb6mrender/render.fs.glsl", GL_FRAGMENT_SHADER);
+        vs = sb7::shader::load("media/shaders/sb6mrender/render.vs.glsl", GL_VERTEX_SHADER);
+        fs = sb7::shader::load("media/shaders/sb6mrender/render.fs.glsl", GL_FRAGMENT_SHADER);
 
         if (program != 0)
             glDeleteProgram(program);
@@ -244,8 +244,8 @@ private:
 
     GLuint              tex_color;
     GLuint              tex_normal;
-    sb6::object         object;
-    sb6::utils::arcball arcball;
+    sb7::object         object;
+    sb7::utils::arcball arcball;
     bool                mouseDown;
 };
 
