@@ -153,7 +153,7 @@ class linesmooth_app : public sb7::application
         glEnable(GL_LINE_SMOOTH);
 
 #ifdef MANY_CUBES
-        for (i = 0; i < 24; i++)
+        for (int i = 0; i < 24; i++)
         {
             float f = (float)i + (float)currentTime * 0.3f;
             vmath::mat4 mv_matrix = vmath::translate(0.0f, 0.0f, -20.0f) *

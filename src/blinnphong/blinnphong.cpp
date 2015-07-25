@@ -28,9 +28,6 @@
 #include <sb7ktx.h>
 #include <shader.h>
 
-#define MANY_OBJECTS 1
-#undef MANY_OBJECTS
-
 class blinnphong_app : public sb7::application
 {
 public:
@@ -151,8 +148,8 @@ void blinnphong_app::render(double currentTime)
 
             glUnmapBuffer(GL_UNIFORM_BUFFER);
 
-            glUniform1f(uniforms[per_vertex ? 1 : 0].specular_power, powf(2.0f, (float)j + 2.0f));
-            glUniform3fv(uniforms[per_vertex ? 1 : 0].specular_albedo, 1, vmath::vec3((float)i / 9.0f + 1.0f / 9.0f));
+            glUniform1f(uniforms[0].specular_power, powf(2.0f, (float)j + 2.0f));
+            glUniform3fv(uniforms[0].specular_albedo, 1, vmath::vec3((float)i / 9.0f + 1.0f / 9.0f));
 
             object.render();
         }

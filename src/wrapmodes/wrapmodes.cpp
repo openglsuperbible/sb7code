@@ -96,6 +96,7 @@ public:
         glAttachShader(program, fs);
 
         glLinkProgram(program);
+        offset_location = glGetUniformLocation(program, "offset");
 
         glGenVertexArrays(1, &vao);
         glBindVertexArray(vao);
@@ -127,7 +128,7 @@ public:
 
         for (int i = 0; i < 4; i++)
         {
-            glUniform2fv(0, 1, &offsets[i * 2]);
+            glUniform2fv(offset_location, 1, &offsets[i * 2]);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapmodes[i]);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapmodes[i]);
 
@@ -139,6 +140,7 @@ private:
     GLuint      texture;
     GLuint      program;
     GLuint      vao;
+    GLint       offset_location;
 };
 
 DECLARE_MAIN(wrapmodes_app);
