@@ -229,9 +229,9 @@ private:
                     break;
                 case 'P': draw_points = !draw_points;
                     break;
-                case GLFW_KEY_KP_ADD: iterations_per_frame++;
+                case GLFW_KEY_EQUAL: iterations_per_frame++;
                     break;
-                case GLFW_KEY_KP_SUBTRACT: iterations_per_frame--;
+                case GLFW_KEY_MINUS: iterations_per_frame--;
                     break;
             }
         }

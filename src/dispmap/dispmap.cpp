@@ -123,9 +123,9 @@ public:
         {
             switch (key)
             {
-                case GLFW_KEY_KP_ADD: dmap_depth += 0.1f;
+                case GLFW_KEY_EQUAL: dmap_depth += 0.1f;
                     break;
-                case GLFW_KEY_KP_SUBTRACT: dmap_depth -= 0.1f;
+                case GLFW_KEY_MINUS: dmap_depth -= 0.1f;
                     break;
                 case 'F': enable_fog = !enable_fog;
                     break;
