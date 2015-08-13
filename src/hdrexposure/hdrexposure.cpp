@@ -121,6 +121,7 @@ public:
         glAttachShader(program, fs);
 
         glLinkProgram(program);
+        exposure_location = glGetUniformLocation(program, "exposure");
 
         glGenVertexArrays(1, &vao);
         glBindVertexArray(vao);
@@ -142,7 +143,7 @@ public:
         glBindTexture(GL_TEXTURE_2D, texture);
         glUseProgram(program);
         glViewport(0, 0, info.windowWidth, info.windowHeight);
-        glUniform1f(0, exposure);
+        glUniform1f(exposure_location, exposure);
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         char buffer[1024];
@@ -174,6 +175,7 @@ private:
     GLuint      program;
     GLuint      vao;
     float       exposure;
+    GLint       exposure_location;
     sb7::text_overlay overlay;
 };
 
