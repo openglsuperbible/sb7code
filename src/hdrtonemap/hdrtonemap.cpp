@@ -145,9 +145,11 @@ public:
                     mode = (mode + 1) % 3;
                 break;
             case GLFW_KEY_KP_ADD:
+            case GLFW_KEY_EQUAL:
                     exposure *= 1.1f;
                 break;
             case GLFW_KEY_KP_SUBTRACT:
+            case GLFW_KEY_MINUS:
                     exposure /= 1.1f;
                 break;
         }
