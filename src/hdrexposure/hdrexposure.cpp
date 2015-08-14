@@ -161,10 +161,10 @@ public:
 
         switch (key)
         {
-            case GLFW_KEY_EQUAL:
+            case GLFW_KEY_KP_ADD:
                     exposure *= 1.1f;
                 break;
-            case GLFW_KEY_MINUS:
+            case GLFW_KEY_KP_SUBTRACT:
                     exposure /= 1.1f;
                 break;
         }

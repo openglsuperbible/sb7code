@@ -446,12 +446,12 @@ void raytracer_app::onKey(int key, int action)
     {
         switch (key)
         {
-            case GLFW_KEY_EQUAL:
+            case GLFW_KEY_KP_ADD:
                 max_depth++;
                 if (max_depth > MAX_RECURSION_DEPTH)
                     max_depth = MAX_RECURSION_DEPTH;
                 break;
-            case GLFW_KEY_MINUS:
+            case GLFW_KEY_KP_SUBTRACT:
                 max_depth--;
                 if (max_depth < 1)
                     max_depth = 1;

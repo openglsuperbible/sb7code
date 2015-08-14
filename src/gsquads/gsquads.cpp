@@ -140,10 +140,10 @@ public:
             case '2':
                     mode = key - '1';
                 break;
-            case GLFW_KEY_EQUAL:
+            case GLFW_KEY_KP_ADD:
                 vid_offset++;
                 break;
-            case GLFW_KEY_MINUS:
+            case GLFW_KEY_KP_SUBTRACT:
                 vid_offset--;
                 break;
             case 'P': paused = !paused;
