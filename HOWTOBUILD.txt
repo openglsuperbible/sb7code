@@ -3,7 +3,7 @@ OpenGL SuperBible 7th Edition Examples - How to Build
 
 This source code archive uses CMake to build. The samples also use GLFW library, a
 snapshot of which is included in the `extern` folder. It's also possible to use a different
-copy of GLFW if desired, but that's an excercise for you. Instructions for each supported
+copy of GLFW if desired, but that's an exercise for you. Instructions for each supported
 platform are as follows:
 
 Windows / Microsoft Visual Studio 2013
@@ -51,11 +51,11 @@ Debian-based distributions (such as Ubuntu and Mint):
 
 You'll also need to satisfy dependencies. In particular, you'll need GL and
 GLX headers and libs (generally included in Mesa packages), and GLFW. You can use
-the a snapshot of GLFW included in the archive, if you wish, but pre-compiled
+the snapshot of GLFW included in the archive, if you wish, but pre-compiled
 packages should be available through package management on most distributions.
 
 Once you have everything, you should enter the "build" directory in the source
-arvhive and issue:
+archive and issue:
 
     cmake ..
     make
@@ -84,5 +84,5 @@ Running the samples
 
 Most of the samples require some media files. The media files package is a
 separate download available from http://www.openglsuperbible.com and is
-rougly 100MB of textures, object files and shader code. Unpack the archive
+roughly 100MB of textures, object files and shader code. Unpack the archive
 to the bin/media directory before trying to run these samples.
