@@ -128,6 +128,7 @@ set(EXAMPLES
   toonshading
   tunnel
   wrapmodes
+  my_application
 )
 
 find_package(OpenMP)

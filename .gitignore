@@ -2,3 +2,4 @@ bin/
 build/
 *.txt.user
 kolorowa-wkladka.pdf
+include/tags
