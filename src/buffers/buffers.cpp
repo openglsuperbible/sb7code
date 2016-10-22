@@ -1,5 +1,9 @@
-#include <sb7.h>
+#include "../../include/sb7.h"
 #include "helpers.h"
+
+#define GL_GLEXT_PROTOTYPES 1
+#include <GL/gl.h>
+#include <stdio.h>
 
 class Buffers : public sb7::application {
     private:
