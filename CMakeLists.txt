@@ -129,6 +129,8 @@ set(EXAMPLES
   tunnel
   wrapmodes
   my_application
+  buffers
+  loading_objects
 )
 
 find_package(OpenMP)
