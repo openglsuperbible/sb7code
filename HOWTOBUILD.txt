@@ -62,6 +62,24 @@ arvhive and issue:
 
 The examples will build into the 'bin' directory.
 
+If you are having problems related to the compiler not being able to find
+glfw3 (as on Ubuntu 16.10), you will have to create a symlink:
+
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libglfw.so
+    /usr/lib/x86_64-linux-gnu/libglfw3.so
+
+Also, in case your compiler stops with an error related to not being able to
+find omp.h, you will have to install a newer version of your comiler (with
+OpenMP support). If you don't want to do this, you can skip building examples
+based on OpenMP by asking make to continue even in case there are some errors
+(the -k switch):
+
+    make -k
+
+Keep in mind that generally this switch means that targets that depend on the
+failed targets won't be built, but in this case each project is a standalone
+target, so that doesn't matter.
+
 Other platforms
 ---------------
 
