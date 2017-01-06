@@ -1,2 +1,5 @@
 bin
 build
+libglfw3.a
+libglfw3_d.a
+libsb7_d.a
