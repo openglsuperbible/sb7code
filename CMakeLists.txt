@@ -95,13 +95,13 @@ set(EXAMPLES
   noperspective
   normalviewer
   objectexploder
-  ompparticles
+#  ompparticles
   packetbuffer
   perpixelgloss
   phonglighting
   polygonsmooth
   prefixsum
-  pmbfractal
+#  pmbfractal
   pmbstreaming
   prefixsum2d
   programinfo

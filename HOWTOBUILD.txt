@@ -40,6 +40,20 @@ Open the resulting superbible7.sln project in Visual Studio.
 
 The examples will build into the `bin` directory.
 
+Windows / CodeBlocks + MINGW32
+------------------------------
+
+The basic process is the same. CodeBlocks does not recognize build configurations, so simply build with
+the default config and copy `glwf3.lib` and skip `glfw3_d.lib`.
+
+By default, CodeBlocks/MINGW32 does not come with OpenMP, so you may want to comment out (using `#`)
+building of `ompparticles` and `pmbfractals` or manually install OpenMP.
+
+C++11 is not the default language standard as of CodeBlocks 16.01. The use of the `M_PI` macro is not
+strict C++11, so the compiler needs to be instructed to relax that requirement. To achieve this, add
+the following to the `CMAKE_CXX_FLAGS` when configuring:
+  `-std=c++11 -U__STRICT_ANSI__ -D_USE_MATH_DEFINES`
+
 Linux
 -----
 
