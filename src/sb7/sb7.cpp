@@ -27,7 +27,9 @@
 
 sb7::application * sb7::application::app = 0;
 
+#ifndef __APPLE__
 #include <GL/glext.h>
+#endif
 
 #include <string.h>
 

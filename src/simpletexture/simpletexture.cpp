@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012-2015 Graham Sellers
+ * Copyright Â© 2012-2015 Graham Sellers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -44,7 +44,7 @@ static void print_shader_log(GLuint shader)
 
 static const char * vs_source[] =
 {
-    "#version 420 core                                                              \n"
+    "#version 410 core                                                              \n"
     "                                                                               \n"
     "void main(void)                                                                \n"
     "{                                                                              \n"
@@ -58,7 +58,7 @@ static const char * vs_source[] =
 
 static const char * fs_source[] =
 {
-    "#version 430 core                                                              \n"
+    "#version 410 core                                                              \n"
     "                                                                               \n"
     "uniform sampler2D s;                                                           \n"
     "                                                                               \n"
