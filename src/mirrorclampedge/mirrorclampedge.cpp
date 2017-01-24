@@ -93,7 +93,9 @@ void mirrorclamp_app::render(double T)
 
     glClearBufferfv(GL_COLOR, 0, sb7::color::Black);
 
+#if defined(_WIN32) && !defined(__MINGW32__)
     Sleep(1);
+#endif
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, input_texture);

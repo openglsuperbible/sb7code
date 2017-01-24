@@ -118,7 +118,7 @@ protected:
         }
         else
         {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(__MINGW32__)
             Sleep(10);
 #endif
         }

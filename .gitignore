@@ -1,3 +1,5 @@
-bin/
-build/
-*.txt.user
+bin
+build
+libglfw3.a
+libglfw3_d.a
+libsb7_d.a

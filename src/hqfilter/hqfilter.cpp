@@ -90,7 +90,9 @@ void cubicfilter_app::render(double currentTime)
 
     glUseProgram(draw_tex_program);
 
+#if defined(_WIN32) && !defined(__MINGW32__)
     Sleep(20);
+#endif // defined
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, source_tex);

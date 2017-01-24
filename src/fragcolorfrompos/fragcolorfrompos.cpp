@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012-2015 Graham Sellers
+ * Copyright Â© 2012-2015 Graham Sellers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -42,7 +42,7 @@ class colorfromposition_app : public sb7::application
 #ifndef INTERPOLATE_COLOR
         static const char * vs_source[] =
         {
-            "#version 420 core                                                          \n"
+            "#version 410 core                                                          \n"
             "                                                                           \n"
             "void main(void)                                                            \n"
             "{                                                                          \n"
@@ -56,7 +56,7 @@ class colorfromposition_app : public sb7::application
 
         static const char * fs_source[] =
         {
-            "#version 420 core                                                          \n"
+            "#version 410 core                                                          \n"
             "                                                                           \n"
             "out vec4 color;                                                            \n"
             "                                                                           \n"
@@ -71,7 +71,7 @@ class colorfromposition_app : public sb7::application
 #else
         static const char * vs_source[] =
         {
-            "#version 420 core                                                          \n"
+            "#version 410 core                                                          \n"
             "                                                                           \n"
             "out vec4 vs_color; \n"
             "void main(void)                                                            \n"
@@ -90,7 +90,7 @@ class colorfromposition_app : public sb7::application
 
         static const char * fs_source[] =
         {
-            "#version 420 core                                                          \n"
+            "#version 410 core                                                          \n"
             "                                                                           \n"
             "in vec4 vs_color;                                                          \n"
             "out vec4 color;                                                            \n"

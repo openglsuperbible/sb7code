@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.0)
 
 project (superbible7)
 
@@ -22,6 +22,10 @@ set (CMAKE_DEBUG_POSTFIX "_d")
 
 if(WIN32)
 set(COMMON_LIBS sb7 optimized glfw3 debug glfw3_d ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
+elseif(APPLE)
+        set(COMMON_LIBS sb7 glfw3 ${OPENGL_LIBRARIES} 
+            "-framework Cocoa -framework IOKit"
+            "-framework CoreFoundation -framework CoreVideo")
 elseif (UNIX)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GLFW REQUIRED glfw3)
@@ -91,13 +95,13 @@ set(EXAMPLES
   noperspective
   normalviewer
   objectexploder
-  ompparticles
+#  ompparticles
   packetbuffer
   perpixelgloss
   phonglighting
   polygonsmooth
   prefixsum
-  pmbfractal
+#  pmbfractal
   pmbstreaming
   prefixsum2d
   programinfo
