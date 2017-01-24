@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012-2015 Graham Sellers
+ * Copyright Â© 2012-2015 Graham Sellers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -22,6 +22,7 @@
  */
 
 #include <sb7.h>
+#include <cmath>
 
 class simpleclear_app : public sb7::application
 {
@@ -36,7 +37,10 @@ class simpleclear_app : public sb7::application
 
     virtual void render(double currentTime)
     {
-        static const GLfloat red[] = { 1.0f, 0.0f, 0.0f, 1.0f };
+        const float time = static_cast<const float>(currentTime);
+        const GLfloat red[] = {std::sin(time)*0.5f+0.5f,
+                               std::cos(time)*0.5f+0.5f,
+                               0.0f, 1.0f };
         glClearBufferfv(GL_COLOR, 0, red);
     }
 };

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012-2015 Graham Sellers
+ * Copyright Â© 2012-2015 Graham Sellers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -22,13 +22,13 @@
  */
 
 #include <sb7.h>
-#include <math.h>
+#include <cmath>
 
-class singlepoint_app : public sb7::application
+class movingtri_app : public sb7::application
 {
     void init()
     {
-        static const char title[] = "OpenGL SuperBible - Single Point";
+        static const char title[] = "OpenGL SuperBible - Moving Triangle";
 
         sb7::application::init();
 
@@ -91,8 +91,9 @@ class singlepoint_app : public sb7::application
 
         glUseProgram(program);
 
-        GLfloat attrib[] = { (float)sin(currentTime) * 0.5f,
-                             (float)cos(currentTime) * 0.6f,
+        const float time = static_cast<const float>(currentTime);
+        GLfloat attrib[] = { std::sin(time) * 0.5f,
+                             std::cos(time) * 0.6f,
                              0.0f, 0.0f };
 
         glVertexAttrib4fv(0, attrib);
@@ -111,4 +112,4 @@ private:
     GLuint          vao;
 };
 
-DECLARE_MAIN(singlepoint_app)
+DECLARE_MAIN(movingtri_app)
