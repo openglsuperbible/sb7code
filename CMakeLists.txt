@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 2.6)
 project (superbible7)
 
 LINK_DIRECTORIES( ${CMAKE_SOURCE_DIR}/lib )
-
+LINK_DIRECTORIES( /usr/X11/lib )
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
@@ -29,6 +29,15 @@ set(COMMON_LIBS sb7 glfw3 X11 Xrandr Xinerama Xi Xxf86vm Xcursor GL rt dl)
 else()
 set(COMMON_LIBS sb7)
 endif()
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  set(COMMON_LIBS sb7 glfw3 X11 Xrandr Xinerama Xi Xxf86vm Xcursor GL dl)
+  find_library(IOKIT IOKit)
+  find_library(COCOA Cocoa)
+  find_library(CORE_FDT CoreFoundation)
+  find_library(CORE_VIDEO CoreVideo)
+ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+
 
 set(COMMON_LIBS ${COMMON_LIBS} ${EXTRA_LIBS})
 
@@ -140,6 +149,11 @@ foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} WIN32 src/${EXAMPLE}/${EXAMPLE}.cpp)
   set_property(TARGET ${EXAMPLE} PROPERTY DEBUG_POSTFIX _d)
   target_link_libraries(${EXAMPLE} ${COMMON_LIBS})
+
+  IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    target_link_libraries(${EXAMPLE} ${IOKIT} ${COCOA} ${CORE_FDT} ${CORE_VIDEO})
+  ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
   if(MSVC)
     configure_file(${PROJECT_SOURCE_DIR}/build/templates/vs2013.vcxproj.user.in ${CMAKE_CURRENT_BINARY_DIR}/${EXAMPLE}.vcxproj.user @ONLY)
   endif(MSVC)
@@ -148,9 +162,12 @@ endforeach(EXAMPLE)
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_LINUX -std=c++0x")
 ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 include_directories( include )
-include_directories(extern/glfw-3.0.4/include)
+include_directories(extern/glfw-master/include)
 
 ADD_CUSTOM_TARGET(debug ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE:STRING=Debug ${PROJECT_SOURCE_DIR})
 ADD_CUSTOM_TARGET(release ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE:STRING=Release ${PROJECT_SOURCE_DIR})
