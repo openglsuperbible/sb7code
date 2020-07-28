@@ -55,7 +55,7 @@ the a snapshot of GLFW included in the archive, if you wish, but pre-compiled
 packages should be available through package management on most distributions.
 
 Once you have everything, you should enter the "build" directory in the source
-arvhive and issue:
+archive and issue:
 
     cmake ..
     make
@@ -84,5 +84,5 @@ Running the samples
 
 Most of the samples require some media files. The media files package is a
 separate download available from http://www.openglsuperbible.com and is
-rougly 100MB of textures, object files and shader code. Unpack the archive
+roughly 100MB of textures, object files and shader code. Unpack the archive
 to the bin/media directory before trying to run these samples.
